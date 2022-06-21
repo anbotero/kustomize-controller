@@ -57,10 +57,11 @@ run: generate fmt vet manifests
 	go run ./main.go --metrics-addr=:8089
 
 # Download the CRDs the controller depends on
+# TODO: remove the hardcoded branch
 download-crd-deps:
-	curl -s https://raw.githubusercontent.com/fluxcd/source-controller/${SOURCE_VER}/config/crd/bases/source.toolkit.fluxcd.io_gitrepositories.yaml > config/crd/bases/gitrepositories.yaml
-	curl -s https://raw.githubusercontent.com/fluxcd/source-controller/${SOURCE_VER}/config/crd/bases/source.toolkit.fluxcd.io_buckets.yaml > config/crd/bases/buckets.yaml
-
+	curl -s https://raw.githubusercontent.com/fluxcd/source-controller/oci/config/crd/bases/source.toolkit.fluxcd.io_gitrepositories.yaml > config/crd/bases/gitrepositories.yaml
+	curl -s https://raw.githubusercontent.com/fluxcd/source-controller/oci/config/crd/bases/source.toolkit.fluxcd.io_buckets.yaml > config/crd/bases/buckets.yaml
+	curl -s https://raw.githubusercontent.com/fluxcd/source-controller/oci/config/crd/bases/source.toolkit.fluxcd.io_ocirepositories.yaml > config/crd/bases/ocirepositories.yaml
 # Install CRDs into a cluster
 install: manifests
 	kustomize build config/crd | kubectl apply -f -

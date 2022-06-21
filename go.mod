@@ -28,7 +28,8 @@ require (
 	github.com/fluxcd/pkg/ssa v0.17.0
 	github.com/fluxcd/pkg/testserver v0.2.0
 	github.com/fluxcd/pkg/untar v0.1.0
-	github.com/fluxcd/source-controller/api v0.25.5
+	// TODO: update SC API when OCIRepository is released
+	github.com/fluxcd/source-controller/api v0.25.7-0.20220621143350-2ff461b191a8
 	github.com/hashicorp/go-retryablehttp v0.7.1
 	github.com/hashicorp/vault/api v1.6.0
 	github.com/onsi/gomega v1.19.0

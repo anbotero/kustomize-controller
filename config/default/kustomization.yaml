@@ -1,10 +1,15 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: kustomize-system
+# TODO: remove the hardcoded branch
 resources:
-- https://github.com/fluxcd/source-controller/releases/download/v0.25.5/source-controller.crds.yaml
+- https://github.com/fluxcd/source-controller/config/crd?ref=oci
 - https://github.com/fluxcd/source-controller/releases/download/v0.25.5/source-controller.deployment.yaml
 - ../crd
 - ../rbac
 - ../manager
 - namespace.yaml
+# TODO: remove the hardcoded image
+images:
+  - name: fluxcd/source-controller
+    newTag: oci-778f6d5d
